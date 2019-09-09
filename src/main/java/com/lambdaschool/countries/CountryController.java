@@ -39,7 +39,7 @@ public class CountryController
     public ResponseEntity<?> getNameLength(@PathVariable int number)
     {
         ArrayList<Country> rtnNumber = CountriesApplication.ourCountryList
-                .findCountries(c -> c.getName().length() <= number);
+                .findCountries(c -> c.getName().length() >= number);
         rtnNumber.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
         return  new ResponseEntity<>(rtnNumber, HttpStatus.OK);
     }

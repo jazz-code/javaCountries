@@ -15,6 +15,14 @@ public class Country
         this.age = age;
     }
 
+    public Country(Country toClone)
+    {
+        this.name = toClone.getName();
+        this.population = toClone.getPopulation();
+        this.size = toClone.getSize();
+        this.age = toClone.getAge();
+    }
+
     public String getName() {
         return name;
     }
