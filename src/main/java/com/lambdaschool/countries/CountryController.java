@@ -15,6 +15,7 @@ public class CountryController
                 produces = {"application/json"})
     public ResponseEntity<?> getAllCountries()
     {
+        CountriesApplication.ourCountryList.countryList.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
         return new ResponseEntity<>(CountriesApplication.ourCountryList.countryList, HttpStatus.OK);
     }
 
