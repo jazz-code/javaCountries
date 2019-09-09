@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @RestController
 @RequestMapping("/population")
@@ -26,4 +28,10 @@ public class PopulationController
         rtnPop.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
         return new ResponseEntity<>(rtnPop, HttpStatus.OK);
     }
+
+    //localhost:2020/population/min
+    //return the country with the smallest population
+    @RequestMapping(value = "/min")
+    public Country rtnMin()
+
 }
