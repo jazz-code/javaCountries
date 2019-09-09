@@ -29,7 +29,18 @@ public class CountryController
     {
         ArrayList<Country> rtnCountry = CountriesApplication.ourCountryList
                 .findCountries(e -> e.getName().toUpperCase().charAt(0) == Character.toUpperCase(letter));
+        rtnCountry.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
         return new ResponseEntity<>(rtnCountry, HttpStatus.OK);
     }
-
+    ///localhost:2020/names/size/{number}
+    //return the countries alphabetically that have a name equal to or longer than the given length
+    @GetMapping(value = "/size/{number}",
+               produces = {"application/json"})
+    public ResponseEntity<?> getNameLength(@PathVariable int number)
+    {
+        ArrayList<Country> rtnNumber = CountriesApplication.ourCountryList
+                .findCountries(c -> c.getName().length() <= number);
+        rtnNumber.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
+        return  new ResponseEntity<>(rtnNumber, HttpStatus.OK);
+    }
 }
