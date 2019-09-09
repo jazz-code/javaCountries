@@ -211,7 +211,7 @@ public class CountryList
         countryList.add(new Country("Seychelles",95702,460,36));
     }
     // singular filter
-    public Country rtnNames(CheckCountry tester)
+    public Country findCountry(CheckCountry tester)
     {
         for (Country c: countryList)
         {
