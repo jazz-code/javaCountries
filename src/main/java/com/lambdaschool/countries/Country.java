@@ -2,49 +2,49 @@ package com.lambdaschool.countries;
 
 public class Country
 {
-    private static String name;
-    private static long population;
-    private static long size;
-    private static int age;
+    private String name;
+    private long population;
+    private long size;
+    private int age;
 
     public Country(String name, long population, long size, int age)
     {
-        this. name = name;
+        this.name = name;
         this.population = population;
         this.size = size;
         this.age = age;
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
-    public static void setName(String name) {
-        Country.name = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public static long getPopulation() {
+    public long getPopulation() {
         return population;
     }
 
-    public static void setPopulation(long population) {
-        Country.population = population;
+    public void setPopulation(long population) {
+        this.population = population;
     }
 
-    public static long getSize() {
+    public long getSize() {
         return size;
     }
 
-    public static void setSize(long size) {
-        Country.size = size;
+    public void setSize(long size) {
+        this.size = size;
     }
 
-    public static int getAge() {
+    public int getAge() {
         return age;
     }
 
-    public static void setAge(int age) {
-        Country.age = age;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     @Override
