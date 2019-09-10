@@ -24,7 +24,7 @@ public class PopulationController
     {
         int length = String.valueOf(people).length();
         ArrayList<Country> rtnPop = CountriesApplication.ourCountryList
-                .findCountries(c -> c.getPopulation() <= people);
+                .findCountries(c -> c.getPopulation() >= people);
         rtnPop.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
         return new ResponseEntity<>(rtnPop, HttpStatus.OK);
     }
@@ -32,6 +32,15 @@ public class PopulationController
     //localhost:2020/population/min
     //return the country with the smallest population
     @RequestMapping(value = "/min")
-    public Country rtnMin()
+    public ResponseEntity<?> rtnMin()
+    {
+        ArrayList<Country> tempCountry = new ArrayList<>(CountriesApplication.ourCountryList.countryList);
+                tempCountry.sort((c1, c2) -> (int)(c1.getPopulation() - c2.getPopulation()));
 
+//        ArrayList<Country> findMin = CountriesApplication.ourCountryList.countryList
+//                .sort((c1, c2) -> (int)(c1.getPopulation() - c2.getPopulation()));
+
+        return new ResponseEntity<>(tempCountry.get(0), HttpStatus.OK);
+
+    }
 }
