@@ -43,4 +43,15 @@ public class PopulationController
         return new ResponseEntity<>(tempCountry.get(0), HttpStatus.OK);
 
     }
+    ///localhost:2020/population/max
+    //return the country with the largest population
+    @RequestMapping(value = "/max")
+    public ResponseEntity<?> rtnMax()
+    {
+        ArrayList<Country> maxCountry = new ArrayList<>(CountriesApplication.ourCountryList.countryList);
+        maxCountry.sort((c1, c2) -> (int)(c2.getPopulation() - c1.getPopulation()));
+
+        return new ResponseEntity<>(maxCountry.get(0), HttpStatus.OK);
+
+    }
 }
